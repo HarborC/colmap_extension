@@ -1,0 +1,35 @@
+include(InstallRequiredSystemLibraries)
+
+# Use the install prefix embedded at configure time
+set(prefix "@CMAKE_INSTALL_PREFIX@")
+
+if(EXISTS "${prefix}")
+  message(STATUS "Uninstalling files from prefix: ${prefix}")
+else()
+  message(WARNING "Install prefix ${prefix} does not exist. Nothing to uninstall.")
+endif()
+
+file(READ "@CMAKE_BINARY_DIR@/install_manifest.txt" __install_manifest__  RESULT_VARIABLE __manifest_read_err)
+if(NOT __manifest_read_err)
+  string(REGEX REPLACE "\r?\n" ";" __install_files__ "${__install_manifest__}")
+  foreach(__file__ ${__install_files__})
+    if(EXISTS "${__file__}")
+      file(REMOVE "${__file__}")
+      message(STATUS "Removed: ${__file__}")
+    else()
+      message(STATUS "Not found (skipped): ${__file__}")
+    endif()
+  endforeach()
+else()
+  message(WARNING "No install_manifest.txt found in build directory. Cannot automatically uninstall.")
+endif()
+
+# Also attempt to remove the package include directory (e.g. <prefix>/include/colmap_extension)
+# Uses the configured install dir and project name embedded at configure time.
+set(_pkg_include_dir "${prefix}/@CMAKE_INSTALL_INCLUDEDIR@/@PROJECT_NAME@")
+if(EXISTS "${_pkg_include_dir}")
+  file(REMOVE_RECURSE "${_pkg_include_dir}")
+  message(STATUS "Removed directory: ${_pkg_include_dir}")
+else()
+  message(STATUS "Package include directory not present: ${_pkg_include_dir}")
+endif()
