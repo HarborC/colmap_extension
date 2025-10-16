@@ -1,0 +1,3 @@
+[submodule "prerequisite/colmap"]
+	path = prerequisite/colmap
+	url = https://github.com/colmap/colmap.git

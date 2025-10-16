@@ -15,7 +15,7 @@ add_subdirectory(src/colmap_extension)
 # install_manifest.txt and removes installed files.
 if(NOT TARGET uninstall)
 	configure_file(
-		"${CMAKE_SOURCE_DIR}/cmake_uninstall.cmake.in"
+		"${CMAKE_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
 		"${CMAKE_BINARY_DIR}/cmake_uninstall.cmake"
 		IMMEDIATE @ONLY)
 
