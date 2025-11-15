@@ -7,6 +7,7 @@ include(GNUInstallDirs)
 
 include_directories(src)
 
+add_subdirectory(src/calibration_utils)
 add_subdirectory(src/colmap_extension)
 
 # Allow users to run: cmake --install build --prefix <prefix>

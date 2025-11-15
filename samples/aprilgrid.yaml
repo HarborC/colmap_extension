@@ -1,0 +1,8 @@
+%YAML:1.0
+
+target_type: 'aprilgrid'
+startID: 0 
+tagCols: 6
+tagRows: 6
+tagSize: 0.02
+tagSpacing: 0.3
