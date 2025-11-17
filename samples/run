@@ -1,6 +1,3 @@
-./build/src/colmap_extension/colmap_extension calibration_bundle_adjuster \
-    --image_dir=/home/gpcv/Data4/projects/SLAM/CSLAM/VINS/vins_foxglove/debug_data/20251113_185951/images/left_selected/imgs \
-    --project_path=/home/gpcv/Data4/projects/SLAM/CSLAM/VINS/vins_foxglove/debug_data/20251113_185951/images/left_selected/1.ini \
-    --detection_path=/home/gpcv/Data4/projects/Dataset/colmap_extension/samples/calibboards.json \
-    --input_path=/home/gpcv/Data4/projects/SLAM/CSLAM/VINS/vins_foxglove/debug_data/20251113_185951/images/left_selected/input \
-    --output_path=/home/gpcv/Data4/projects/SLAM/CSLAM/VINS/vins_foxglove/debug_data/20251113_185951/images/out
+ ./build/src/colmap_extension/colmap_extension calibration_detection --board_config_path /home/gpcv/Data4/projects/Dataset/colmap_extension/samples/aprilgrid.yaml --detection_path /home/gpcv/Data4/projects/Dataset/colmap_extension/samples/out.bin  --image_path /home/gpcv/Data4/projects/SLAM/CSLAM/VINS/vins_foxglove/debug_data/20251113_185951/images/left_selected/imgs/5345.118814.png --debug_image_path /home/gpcv/Data4/projects/Dataset/colmap_extension/samples/out2.jpg
+
+./build/src/colmap_extension/colmap_extension calibration_bundle_adjuster --image_dir /home/gpcv/Data4/projects/SLAM/CSLAM/VINS/vins_foxglove/debug_data/20251113_185951/images/left_selected/imgs --project_path /home/gpcv/Data4/projects/SLAM/CSLAM/VINS/vins_foxglove/debug_data/20251113_185951/images/left_selected/1.ini --detection_path /home/gpcv/Data4/projects/Dataset/colmap_extension/samples/calibboards.json --input_path /home/gpcv/Data4/projects/SLAM/CSLAM/VINS/vins_foxglove/debug_data/20251113_185951/images/left_selected --output_path /home/gpcv/Data4/projects/SLAM/CSLAM/VINS/vins_foxglove/debug_data/2^C51113_185951/images/out
