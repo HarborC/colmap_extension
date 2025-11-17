@@ -34,6 +34,7 @@ public:
   std::shared_ptr<const CalibBoard> board_; // board type
   std::vector<Eigen::Vector2d> corners2d_;
   std::vector<Eigen::Vector3d> corners3d_;
+  std::shared_ptr<Eigen::Matrix4d> cam_from_world_ = nullptr; // estimated pose (cam_from_board)
 
   cv::Mat showInImage(const cv::Mat &img,
                       const std::vector<unsigned char> &color = {0, 255,

@@ -16,10 +16,6 @@ int ShowHelp(
   std::cout << "Usage:\n";
   std::cout << "  colmap_extension [command] [options]\n";
 
-  std::cout << "Example usage:\n";
-  std::cout << "  colmap_extension help [ -h, --help ]\n";
-  std::cout << "  ...\n";
-
   std::cout << "Available commands:\n";
   std::cout << "  help\n";
   for (const auto& command : commands) {
@@ -57,7 +53,7 @@ int main(int argc, char** argv) {
     if (matched_command_func == nullptr) {
       LOG(ERROR) << colmap::StringPrintf(
           "Command `%s` not recognized. To list the "
-          "available commands, run `colmap_extension help`.",
+          "available commands, run `colmap help`.",
           command.c_str());
       return EXIT_FAILURE;
     } else {

@@ -8,7 +8,8 @@ include_directories(${Eigen3_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
 add_executable(${PROJECT_NAME} 
 	exe/colmap_extension.cc
 	exe/calibration.cc
-	estimators/bundle_adjustment.cc)
+	estimators/bundle_adjustment.cc
+	calibration/calib_rig_system.cc)
 target_link_libraries(${PROJECT_NAME} PRIVATE colmap::colmap calibration_utils ${OpenCV_LIBS})
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 

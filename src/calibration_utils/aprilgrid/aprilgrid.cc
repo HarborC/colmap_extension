@@ -110,7 +110,7 @@ CalibDetection::Ptr AprilGridBoard::detect(const cv::Mat &image) const {
       continue;
     }
     const Eigen::Vector4d &pos_3d_h = object_points_[corner_id];
-    corners3d.emplace_back(pos_3d_h[0], pos_3d_h[1], pos_3d_h[2]);
+    corners3d.emplace_back(Eigen::Vector3d(pos_3d_h[0], pos_3d_h[1], pos_3d_h[2]));
   }
 
   auto detection = std::make_shared<AprilGridBoardDetection>();
@@ -119,6 +119,8 @@ CalibDetection::Ptr AprilGridBoard::detect(const cv::Mat &image) const {
   detection->corners3d_ = std::move(corners3d);
   detection->corner2d_ids_ = ids;
   detection->corner2d_radii_ = radii;
+
+  std::cout << "[INFO] Detected " << tag_count << " tags with " << detection->corners2d_ .size() << " corners." << std::endl;
 
   return std::dynamic_pointer_cast<CalibDetection>(detection);
 }
